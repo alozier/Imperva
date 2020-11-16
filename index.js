@@ -8,7 +8,6 @@ fetchResponses.then(response => {
     const bad_bot_requests = domRequests.categorized_domain_requests.map(badBot => badBot.bad_bot_total);
     const whitelist_requests = domRequests.categorized_domain_requests.map(whitelist => whitelist.whitelist_total);
     const dates = domRequests.categorized_domain_requests.map(dates => dates.summary_date);
-    console.log(domRequests.categorized_domain_requests);
     $(function () {
         $('#container').highcharts({
             chart: {
@@ -43,7 +42,7 @@ fetchResponses.then(response => {
             }],
         });
         $('#submitButton').click(function(){
-            var chart = $('#container').highcharts();
+            const chart = $('#container').highcharts();
             const botSeries = document.querySelector('input[name="reqType"]:checked').id;
             const dateValue = $('#dates').val();
             const reqNumber = parseInt($('#reqNumber').val());
